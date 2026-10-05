@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "visualization-mcp"
+version = "0.2.0"
+description = "MCP skill for data visualization - 11 chart types (line/bar/pie/donut/scatter/histogram/area/waterfall/combo/kline/decision_tree), A-share K-line, decision-tree visualization, CJK font auto-detect"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "RuiChencc", email = "ruichencc@example.com"}
+]
+requires-python = ">=3.10"
+keywords = ["visualization", "chart", "graph", "mcp", "kline", "decision-tree", "candlestick", "matplotlib"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Multimedia :: Graphics",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+dependencies = [
+    "matplotlib>=3.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+]
+
+[project.scripts]
+visualization-mcp = "visualization_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/visualization_mcp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
